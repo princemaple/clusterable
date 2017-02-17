@@ -39,29 +39,35 @@ be found at [https://hexdocs.pm/clusterable](https://hexdocs.pm/clusterable).
 If using peerage dns, make sure the two `app_name`
 configs are the same.
 
-    config :clusterable,
-      cookie: :cluster,
-      app_name: "elixir"
+```elixir
+config :clusterable,
+  cookie: :cluster,
+  app_name: "elixir"
 
-    config :peerage, # if using DNS
-      via: Peerage.Via.Dns,
-      dns_name: "peer",
-      app_name: "elixir"
+config :peerage, # if using DNS
+  via: Peerage.Via.Dns,
+  dns_name: "peer",
+  app_name: "elixir"
 
-    config :peerage, # if using UDP
-      via: Peerage.Via.Udp,
-      serves: true,
-      port: 45900
+config :peerage, # if using UDP
+  via: Peerage.Via.Udp,
+  serves: true,
+  port: 45900
+```
 
 ## Example Usage
 
 Add Clusterable to a supervision tree as a transient worker
 
-    worker(Clusterable, [], restart: :transient)
+```elixir
+worker(Clusterable, [], restart: :transient)
+```
 
 If you are playing with it in IEx, you can start it manually
 
-    Clusterable.start_link
+```elixir
+Clusterable.start_link
+```
 
 ## Testing with Docker
 
