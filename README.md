@@ -69,9 +69,12 @@ If you are playing with it in IEx, you can start it manually
 Clusterable.start_link
 ```
 
-## Testing with Docker
+## Testing with Docker 1.10+
 
-Clone Clusterable project, in the project dir:
+- clone Clusterable project
+- uncomment according configs in `config/config.exs`
+- remove `optional: true` in `mix.exs` for `:peerage`
+- in the project dir, run the commands below:
 
     docker build -t clusterable .
     docker network create test -d bridge
@@ -83,4 +86,3 @@ Clone Clusterable project, in the project dir:
     # open shell 2, do the same
     docker run --rm -it --network test --network-alias peer clusterable
     iex> Clusterable.start_link
-
