@@ -1,5 +1,16 @@
 # Clusterable
 
+`Clusterable` prepares a node to be clustered.
+
+With `Clusterable`, you can forget about special settings/configurations
+for clustering. And you no longer need to start Elixir/Erlang with `--sname`
+or `--name`.
+
+If you use `Clusterable` and `Peerage` together, clustering just becomes
+so easy and happens like magic!
+
+*Not tested with `libcluster` but should work too*
+
 ## Installation
 
 It's [available in Hex](https://hex.pm/docs/publish), the package can be installed
