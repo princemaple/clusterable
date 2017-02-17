@@ -1,0 +1,6 @@
+%{"deferred_config": {:hex, :deferred_config, "0.1.1", "ec912e9ee3c99b90a8d4bdec8fbd15309f4bd6729f30789e0ff6f595d06bbce5", [:mix], []},
+  "earmark": {:hex, :earmark, "1.1.1", "433136b7f2e99cde88b745b3a0cfc3fbc81fe58b918a09b40fce7f00db4d8187", [:mix], []},
+  "ex_doc": {:hex, :ex_doc, "0.14.5", "c0433c8117e948404d93ca69411dd575ec6be39b47802e81ca8d91017a0cf83c", [:mix], [{:earmark, "~> 1.0", [hex: :earmark, optional: false]}]},
+  "libcluster": {:hex, :libcluster, "2.0.4", "8b2451f0594b77e024e190285bf177fe8885da86748ca9f02ea3ba42cc2fc2b6", [:mix], [{:poison, "~> 3.0", [hex: :poison, optional: false]}]},
+  "peerage": {:hex, :peerage, "1.0.2", "43417cae92ca93fa3065194f5c6cb0b3df2214b2009128e470482563402cc9e5", [:mix], [{:deferred_config, "~> 0.1.1", [hex: :deferred_config, optional: false]}]},
+  "poison": {:hex, :poison, "3.1.0", "d9eb636610e096f86f25d9a46f35a9facac35609a7591b3be3326e99a0484665", [:mix], []}}
