@@ -87,13 +87,15 @@ Clusterable.start_link
 - remove `optional: true` in `mix.exs` for `:peerage`
 - in the project dir, run the commands below:
 
-    docker build -t clusterable .
-    docker network create test -d bridge
+```
+docker build -t clusterable .
+docker network create test -d bridge
 
-    # open shell 1
-    docker run --rm -it --network test --network-alias peer clusterable
-    iex> Clusterable.start_link
+# open shell 1
+docker run --rm -it --network test --network-alias peer clusterable
+iex> Clusterable.start_link
 
-    # open shell 2, do the same
-    docker run --rm -it --network test --network-alias peer clusterable
-    iex> Clusterable.start_link
+# open shell 2, do the same
+docker run --rm -it --network test --network-alias peer clusterable
+iex> Clusterable.start_link
+```
