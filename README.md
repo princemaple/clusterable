@@ -13,8 +13,8 @@ so easy and happens like magic!
 
 ## Installation
 
-It's [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `clusterable` to your list of dependencies in `mix.exs`:
+It's [available in Hex](https://hex.pm/packages/clusterable), the package can be
+installed by adding `clusterable` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -40,10 +40,6 @@ def deps do
    {:libcluster, "~> 2.0"}]
 end
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/clusterable](https://hexdocs.pm/clusterable).
 
 ## Example Config with Peerage
 
