@@ -21,7 +21,8 @@ defmodule Clusterable do
 
   ## Example Usage
 
-  Add Clusterable to a supervision tree as a transient worker
+  Add Clusterable to a supervision tree as a non-permanent worker,
+  i.e. `transient` or `temporary`
 
       worker(Clusterable, [], restart: :transient)
 
