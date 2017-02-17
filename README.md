@@ -17,6 +17,11 @@ This does not work for releases. It's mainly for docker users (like me), and tho
 
 It won't work in releases, as `:net_kernel` will already be started, and the cookie will already be set.
 
+## What is it good for?
+
+It's good for clusters that don't have a fixed number of nodes, and you don't want to manage an orchestration
+script/tool that assigns names/IPs before nodes boot. For example, auto scaling cluster, and lazy devs :+1:
+
 ## Installation
 
 It's [available in Hex](https://hex.pm/packages/clusterable), the package can be
