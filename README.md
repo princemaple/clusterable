@@ -11,6 +11,12 @@ so easy and happens like magic!
 
 *Not tested with `libcluster` but should work too*
 
+## Not for releases
+
+This does not work for releases. It's mainly for docker users (like me), and those who don't use releases.
+
+It won't work in releases, as `:net_kernel` will already be started, and the cookie will already be set.
+
 ## Installation
 
 It's [available in Hex](https://hex.pm/packages/clusterable), the package can be
