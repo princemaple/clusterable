@@ -28,21 +28,6 @@ defmodule Clusterable do
   If you are playing with it in IEx, you can start it manually
 
       Clusterable.start_link
-
-  ## Testing with Docker
-
-  Clone Clusterable project, in the project dir:
-
-      docker build -t clusterable .
-      docker network create test -d bridge
-
-      # open shell 1
-      docker run --rm -it --network test --network-alias peer clusterable
-      iex> Clusterable.start_link
-
-      # open shell 2, do the same
-      docker run --rm -it --network test --network-alias peer clusterable
-      iex> Clusterable.start_link
   """
 
   use GenServer
