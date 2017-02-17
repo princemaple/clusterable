@@ -89,7 +89,7 @@ Clusterable.start_link
 
 ```
 docker build -t clusterable .
-docker network create test -d bridge
+docker network create -d bridge peer
 
 # open shell 1
 docker run --rm -it --network test --network-alias peer clusterable
