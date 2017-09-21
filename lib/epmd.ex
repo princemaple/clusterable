@@ -25,10 +25,10 @@ defmodule EPMD.Service do
     node_name = Regex.replace ~r/@.*$/, name, ""
     offset =
       case Regex.run ~r/[0-9]+$/, node_name do
-    nil ->
-      0
-    [offset_as_string] ->
-      String.to_integer offset_as_string
+        nil ->
+          0
+        [offset_as_string] ->
+          String.to_integer offset_as_string
       end
 
     base_port + offset
@@ -36,7 +36,6 @@ defmodule EPMD.Service do
 end
 
 defmodule EPMD.Service_dist do
-
   def listen(name) do
     # Here we figure out what port we want to listen on.
 
@@ -79,7 +78,7 @@ defmodule EPMD.Service_dist do
 end
 
 defmodule EPMD.Client do
-  # erl_distribution wants us to start a worker process.  We don't
+  # erl_distribution wants us to start a worker process. We don't
   # need one, though.
   def start_link do
     :ignore
