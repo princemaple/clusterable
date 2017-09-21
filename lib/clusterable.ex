@@ -31,7 +31,7 @@ defmodule Clusterable do
       Clusterable.start_link
   """
 
-  use GenServer
+  use GenServer, restart: :transient
 
   @doc """
   Call this to prepare the node for clustering
@@ -46,8 +46,6 @@ defmodule Clusterable do
   end
 
   def handle_info(:enable, _) do
-    {"", 0} = System.cmd("epmd", ["-daemon"])
-
     {:ok, ip_groups} = :inet.getif
 
     ip =
@@ -57,7 +55,7 @@ defmodule Clusterable do
         _ -> false
       end)
       |> Enum.map(fn {{a, b, c, d}, _, _} -> [a, b, c, d] end)
-      |> hd()
+      |> List.first
       |> Enum.map(&to_string/1)
       |> Enum.join(".")
 
