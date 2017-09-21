@@ -1,23 +1,10 @@
 defmodule Clusterable do
   @moduledoc """
-  ## Example Config with Peerage
-
-  If using peerage dns, make sure the two `app_name`
-  configs are the same.
+  ## Example Config
 
       config :clusterable,
-        cookie: :cluster,
-        app_name: "elixir"
-
-      config :peerage, # if using DNS
-        via: Peerage.Via.Dns,
-        dns_name: "peer",
-        app_name: "elixir"
-
-      config :peerage, # if using UDP
-        via: Peerage.Via.Udp,
-        serves: true,
-        port: 45900
+        cookie: :my_cookie,
+        app_name: "my_app"
 
   ## Example Usage
 
@@ -25,6 +12,9 @@ defmodule Clusterable do
   i.e. `transient` or `temporary`
 
       worker(Clusterable, [], restart: :transient)
+
+  For Elixir 1.5+, simply add `Clusterable` to your children list,
+  its child_spec sets the correct restart strategy already.
 
   If you are playing with it in IEx, you can start it manually
 
@@ -37,6 +27,7 @@ defmodule Clusterable do
   Call this to prepare the node for clustering
   """
   def start_link do
+    {:ok, _apps} = Application.ensure_all_started(:libcluster)
     GenServer.start_link(__MODULE__, :ok)
   end
 

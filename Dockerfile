@@ -1,9 +1,12 @@
-FROM elixir:1.4.1-slim
+FROM elixir:1.5-alpine
+
+ENV ELIXIR_ERL_OPTIONS=" \
+  -proto_dist Elixir.Clusterable.EPMD.Service \
+  -epmd_module Elixir.Clusterable.EPMD.Client"
 
 RUN set -xe \
-    && apt-get update \
-    && apt-get install -y build-essential \
-    && rm -rf /var/lib/apt/lists/*
+    && apk add -U inotify-tools build-base \
+    && rm -rf /var/cache/apk/*
 
 RUN mix local.hex --force && mix local.rebar --force
 

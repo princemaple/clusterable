@@ -16,9 +16,7 @@ defmodule Clusterable.Mixfile do
   end
 
   defp deps do
-    [{:peerage, "~> 1.0", optional: true},
-     {:libcluster, "~> 2.0", optional: true},
-
+    [{:libcluster, "~> 2.0", runtime: false},
      {:ex_doc, ">= 0.0.0", only: :dev}]
   end
 

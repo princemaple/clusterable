@@ -2,7 +2,9 @@
 #  https://www.erlang-solutions.com/blog/erlang-and-elixir-distribution-without-epmd.html
 # You want to read that! :)
 
-defmodule EPMD.Service do
+defmodule Clusterable.EPMD.Service do
+  @moduledoc false
+
   def port(name) when is_atom(name) do
     port Atom.to_string name
   end
@@ -35,18 +37,16 @@ defmodule EPMD.Service do
   end
 end
 
-defmodule EPMD.Service_dist do
+defmodule Clusterable.EPMD.Service_dist do
+  @moduledoc false
+
   def listen(name) do
-    # Here we figure out what port we want to listen on.
+    port = Clusterable.EPMD.Service.port name
 
-    port = ExploringElixir.Dist.Service.port name
-
-    # Set both "min" and "max" variables, to force the port number to
-    # this one.
+    # Set both "min" and "max" variables, to force the port number to this one.
     :ok = :application.set_env :kernel, :inet_dist_listen_min, port
     :ok = :application.set_env :kernel, :inet_dist_listen_max, port
 
-    # Finally run the real function!
     :inet_tcp_dist.listen name
   end
 
@@ -59,7 +59,8 @@ defmodule EPMD.Service_dist do
   end
 
   def accept_connection(accept_pid, socket, my_node, allowed, setup_time) do
-    IO.puts "Accepting connection! #{inspect my_node}"
+    require Logger
+    Logger.debug("Accepting connection! #{inspect my_node}")
     :inet_tcp_dist.accept_connection accept_pid, socket, my_node, allowed, setup_time
   end
 
@@ -77,7 +78,9 @@ defmodule EPMD.Service_dist do
   end
 end
 
-defmodule EPMD.Client do
+defmodule Clusterable.EPMD.Client do
+  @moduledoc false
+
   # erl_distribution wants us to start a worker process. We don't
   # need one, though.
   def start_link do
@@ -101,7 +104,7 @@ defmodule EPMD.Client do
   end
 
   def port_please(name, _ip) do
-    port = ExploringElixir.Dist.Service.port name
+    port = Clusterable.EPMD.Service.port name
     # The distribution protocol version number has been 5 ever since
     # Erlang/OTP R6.
     version = 5
