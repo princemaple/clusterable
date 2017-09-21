@@ -21,7 +21,7 @@ defmodule Clusterable.Mixfile do
   end
 
   defp package do
-    [description: "Clusterable prepares a node to be clustered",
+    [description: "Clusterable makes clustering easier",
      licenses: ["MIT"],
      maintainers: ["Po Chen"],
      links: %{"GitHub": "https://github.com/princemaple/clusterable"}]
