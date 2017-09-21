@@ -15,7 +15,7 @@ defmodule Clusterable do
   -epmd_module Elixir.Clusterable.EPMD.Client"
   ```
 
-  e.g. `iex --erl "--proto_dist ... -epmd_module ..." -S mix`
+  e.g. `iex --erl "-proto_dist ... -epmd_module ..." -S mix`
 
   Add Clusterable to a supervision tree as a non-permanent worker,
   i.e. `transient` or `temporary`
